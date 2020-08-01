@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { SettingsService } from '../services/settings.service';
+
+declare function customFunctionInit();
 
 @Component({
   selector: 'app-pages',
@@ -8,12 +11,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PagesComponent implements OnInit {
 
-  public linkTheme = document.querySelector('#theme');
+  constructor(private settingsService: SettingsService) {
+  }
 
   ngOnInit(): void {
 
-    var url = localStorage.getItem('theme') || './assets/css/colors/purple-dark.css';
-    this.linkTheme.setAttribute('href', url);
+    // Declareted funciontion: "declare function customFunctionInit(); to access global JavaScript function.
+    // customs.js updated to create a new function "customFunctionInit() and move inside it all JavaScript initial code".∫
+    customFunctionInit();
 
   }
 
