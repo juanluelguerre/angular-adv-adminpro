@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Router, ActivationEnd, ActivatedRouteSnapshot } from '@angular/router';
+import { Component, OnDestroy } from '@angular/core';
+import { Router, ActivationEnd, ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
 import { filter, map } from "rxjs/operators";
 import { Subscription } from 'rxjs';
 
@@ -9,17 +9,25 @@ import { Subscription } from 'rxjs';
   styles: [
   ]
 })
-export class BreadcrumbsComponent {
+export class BreadcrumbsComponent implements OnDestroy{
 
   public titulo: string;
   public tituloSubs$: Subscription;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private route: ActivatedRoute) {
+
+    // Alternative to get title from route, but, it's necesary to subscrive events, in other wise title is all time the same.
+    // console.log(route.snapshot.children[0].data);
+
     this.tituloSubs$ = this.getRoutArguments()
                           .subscribe( ({titulo})=> {
                             this.titulo = titulo;
                             document.title  = `Admin Pro - ${this.titulo}`;
                           });    
+  }
+
+  ngOnDestroy(): void {
+    this.tituloSubs$.unsubscribe();
   }
 
   getRoutArguments() {
