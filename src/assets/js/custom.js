@@ -82,23 +82,24 @@ const customFunctionInit = () =>{
             $(this).parents('.form-group').toggleClass('focused', (e.type === 'focus' || this.value.length > 0));
         }).trigger('blur');
     
-        // ============================================================== 
-        // Auto select left navbar
-        // ============================================================== 
-        $(function() {
-            var url = window.location;
-            var element = $('ul#sidebarnav a').filter(function() {
-                return this.href == url;
-            }).addClass('active').parent().addClass('active');
-            while (true) {
-                if (element.is('li')) {
-                    element = element.parent().addClass('in').parent().addClass('active');
-                } else {
-                    break;
-                }
-            }
-    
-        });
+        // TODO: Comented angular Training. No need !
+        // // ============================================================== 
+        // // Auto select left navbar
+        // // ============================================================== 
+        // $(function() {
+        //     var url = window.location;
+        //     var element = $('ul#sidebarnav a').filter(function() {
+        //         return this.href == url;
+        //     }).addClass('active').parent().addClass('active');
+        //     while (true) {
+        //         if (element.is('li')) {
+        //             element = element.parent().addClass('in').parent().addClass('active');
+        //         } else {
+        //             break;
+        //         }
+        //     }    
+        //});
+
         // ============================================================== 
         //tooltip
         // ============================================================== 
