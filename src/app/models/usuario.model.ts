@@ -1,3 +1,7 @@
+import { environment } from 'src/environments/environment';
+
+const base_url = environment.base_url;
+
 export class Usuario {
     constructor(
         public nombre: string,
@@ -7,7 +11,27 @@ export class Usuario {
         public google?: boolean,
         public role?: string,
         public uid?: string
-    ){
+    ) {
 
+    }
+
+    // LEARN:
+    // imprimirUsuario() {
+    //     console.log(this.nombre);
+    // }
+
+
+    get imageUrl() {
+
+        if (this.img) {
+            // Google Image from perfil of google user.
+            if (this.img.includes('https')) {
+                return this.img;
+            }   
+
+            return `${base_url}/upload/usuarios/${this.img}`;
+        } else {
+            return `${base_url}/upload/usuarios/no-image}`;
+        }
     }
 }
