@@ -16,7 +16,7 @@ export class PerfilComponent implements OnInit {
   // Reactive Form !
   public perfilForm: FormGroup;
   public usuario: Usuario;
-  public  imagenSubir: File;
+  public imagenSubir: File;
   public imgTemp : any = null;
 
   constructor(private fb: FormBuilder,
@@ -67,7 +67,6 @@ export class PerfilComponent implements OnInit {
       this.imgTemp = reader.result;
       
     }
-
   }
 
   subirImagen() {

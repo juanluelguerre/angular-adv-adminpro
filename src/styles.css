@@ -6,7 +6,11 @@
   animation-fill-mode: both;
 }
 
-#themecolors .selector .cursor {
+#themecolors .selector {
+  cursor: pointer;
+}
+
+.cursor {
   cursor: pointer;
 }
 
@@ -20,4 +24,30 @@
 .img-avatar {
   height: 200px;
   width: 200px;  
+}
+
+.w100{
+  width: 100px;
+}
+
+.w140{
+  width: 140px;
+}
+.avatar{
+  border-radius: 100%;
+  width: 30px;
+}
+
+.fondo-modal-imagen {
+  background-color: rgba(0, 0, 0, 0.4);
+  left: 0px;
+  height: 100%;
+  position: fixed;
+  top: 0px; 
+  width: 100%;
+  z-index: 9999;
+}
+
+.oculto {
+  display: none;
 }

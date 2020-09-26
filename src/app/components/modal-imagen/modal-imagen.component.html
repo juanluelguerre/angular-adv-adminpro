@@ -1,0 +1,50 @@
+<div class="fondo-modal-imagen animated fadIn fast"
+    [class.oculto]="modalImageService.ocultarModal">
+    <div id="responsive-modal"
+     class="modal fade show"
+     tabindex="-1" 
+     role="dialog"
+     aria-labelledby="myModalLabel"
+     style="display: block;">
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Actualizar imagen</h3>
+                <button type="button" 
+                        class="close cursor" 
+                        data-dismiss="modal" 
+                        aria-hidden="true"
+                        (click)="cerrarModal()">
+                        X
+                    </button>
+            </div>
+            <div class="modal-body">
+                <h4>Seleccione una imagen</h4>
+
+                <div class="text-center">
+                    <img *ngIf="!imgTemp" [src]="modalImageService.img" class="img-avatar">
+                    <img *ngIf="imgTemp"  [src]="imgTemp" class="img-avatar">
+                </div>
+                <input type="file"
+                       (change)="cambiarImagen($event.target.files[0])">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button"
+                    class="btn btn-default waves-effect" 
+                    data-dismiss="modal"
+                    (click)="cerrarModal()">
+                    Cancelar
+                </button>
+                <button type="button"
+                        class="btn btn-danger waves-effect waves-light"
+                        (click)="subirImagen()">
+                        Actualizar
+                    </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
