@@ -53,16 +53,14 @@
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <thead>
-                            <tr>
-                                <th>Id</th>
+                            <tr>                                
                                 <th class="w100">Foto</th>
                                 <th>Nombre</th>
                                 <th class="w100 text-nowrap">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let medico of medicos">
-                                <td>{{medico._id}}</td>
+                            <tr *ngFor="let medico of medicos">                                
                                 <td class="text-center">
                                     <img [src]="medico.img | imagen: 'medicos'"
                                          [alt]="medico.nombre"
