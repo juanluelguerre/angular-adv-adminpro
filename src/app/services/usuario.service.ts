@@ -22,8 +22,8 @@ export class UsuarioService {
   public usuario: Usuario;
 
   constructor(private http: HttpClient,
-    private router: Router,
-    private ngZone: NgZone) {
+              private router: Router,
+              private ngZone: NgZone) {
 
     this.googleInit();
   }
