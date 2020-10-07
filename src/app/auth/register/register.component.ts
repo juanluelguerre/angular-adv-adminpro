@@ -14,13 +14,13 @@ export class RegisterComponent {
   public formSubmitted = false;
 
   public registerForm = this.fb.group({
-    nombre: ['juanlu', [Validators.required]],
-    email: ['test100@gmail.com', [Validators.required, Validators.email]],
-    password: ['123456', [Validators.required]],
-    password2: ['1234567', [Validators.required]],
-    terminos: [false, [Validators.required]],
-  }, {
-    validators: this.passwordsIguales('password', 'password2')
+      nombre: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]],
+      password2: ['', [Validators.required]],
+      terminos: [false, [Validators.required]],
+    }, {
+      validators: this.passwordsIguales('password', 'password2')
   });
 
 
@@ -30,20 +30,17 @@ export class RegisterComponent {
 
   crearUsuario() {
     this.formSubmitted = true;
-    console.log(this.registerForm.value);
-    // console.log(this.registerForm);
-
-    if (this.registerForm.valid) {
+    
+    // console.log(this.registerForm.value); 
+    if (!this.registerForm.valid) {
       return;
     }
 
     this.usuarioService.crearUsuario(this.registerForm.value)
-      .subscribe(res => {
-        // Navigate to Dashboard
-        this.router.navigateByUrl('/');
-      }, (err) => {
-        Swal.fire('Error', err.error.msg, 'error');
-      });
+      .subscribe(
+        res => this.router.navigateByUrl('/'),        
+        err => Swal.fire('Error', err.error.msg, 'error')        
+      );
   }
 
   campoNoValido(campo: string): boolean {
@@ -75,7 +72,7 @@ export class RegisterComponent {
       const pass1Control = formGroup.get(pass1Name);
       const pass2Control = formGroup.get(pass2Name);
 
-      if (pass1Control === pass2Control) {
+      if (pass1Control.value === pass2Control.value) {
         pass2Control.setErrors(null);
       } else {
         pass2Control.setErrors({ noEsIgual: true });
