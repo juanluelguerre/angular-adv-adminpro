@@ -5,6 +5,9 @@
 Project developed following Udemy Course to improve my Angular and Node Kowledges: [Angular Avanzado by Fernando Herrera](https://www.udemy.com/course/angular-avanzado-fernando-herrera)
 Also use a Backend Server found in [this git](https://github.com/juanluelguerre/angular-adv-adminpro-backend)
 
+
+More detail: https://elguerre.com/2020/10/17/learning-angular-nodejs-para-un-net-tero-c/
+
 ---
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.9.
